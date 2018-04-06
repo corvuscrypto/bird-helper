@@ -57,10 +57,10 @@ def write_buffer():
 
 
 def main(filename):
-    open_fifo(filename)
 
     th = DataThread(QUEUE)
     th.start()
+    open_fifo(filename)
 
     while QUEUE.unfinished_tasks < MIN_BUFFER_LEN:
         time.sleep(1)
